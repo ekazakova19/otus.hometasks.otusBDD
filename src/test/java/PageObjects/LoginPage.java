@@ -13,7 +13,7 @@ public class LoginPage extends BasePage{
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
     public static String url = "https://otus.ru/login/";
 
-    @FindBy(css="\"form.new-log-reg__form.js-login\"")
+    @FindBy(css="form.new-log-reg__form.js-login")
     public WebElement LOGIN_FORM ;
     @FindBy(css="input[type=text]")
     public WebElement EMAIL;

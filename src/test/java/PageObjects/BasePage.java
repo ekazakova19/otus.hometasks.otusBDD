@@ -23,10 +23,6 @@ public class BasePage {
         driverHelper = new DriverHelper(driver);
     }
 
-    @Before
-    public void initDriver(){
-       this.driver =  DriverManager.getChromeDriver();
-    }
 
     public void clickOn(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
