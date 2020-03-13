@@ -19,7 +19,7 @@ public class LoginPage extends BasePage{
     public WebElement EMAIL;
     @FindBy(css="input[type=password]")
     public WebElement PASSWORD;
-    @FindBy(linkText = "Войти")
+    @FindBy(css="form.new-log-reg__form button")
     public WebElement LOGIN_BUTTON;
 
     public LoginPage(WebDriver driver) {
