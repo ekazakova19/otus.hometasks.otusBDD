@@ -25,6 +25,7 @@ public class MainPage extends BasePage {
         clickOn(RegisterButton);
     }
 
+
     public void checkMainPageOpenInAuthorizedMode(){
             wait.until(ExpectedConditions.visibilityOf(USER_NAME_MENU));
     }

@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/FeatureFiles",
+        features = "src/test/java/FeatureFiles/Blog.feature",
         glue = "Steps",
         snippets = SnippetType.CAMELCASE
 )

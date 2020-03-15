@@ -41,21 +41,5 @@ public class LoginPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOf(LOGIN_FORM));
     }
 
-//    public void loginAs(String email, String password){
-//        driver.get(url);
-//        logger.info("Page {} opened.Starting enter credentials ...", url);
-//        WebElement loginForm = driver.findElement(LOGIN_FORM);
-//        loginForm.findElement(EMAIL).sendKeys(email);
-//        loginForm.findElement(PASSWORD).sendKeys(password);
-//        logger.info("Credentials entered, submitting the form...");
-//        loginForm.submit();
-//        try {
-//            wait.until(ExpectedConditions.visibilityOfElementLocated(HomePage.USER_NAME_MENU));
-//            logger.info("Login is successful.Home page is opened for the user");
-//
-//        } catch (TimeoutException e) {
-//            logger.error("Login is not successful. See error {}", e);
-//            throw e;
-//        }
-//    }
+
 }
