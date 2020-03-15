@@ -1,20 +1,28 @@
 package Steps;
 
+import Helpers.CookieManager;
 import Helpers.DriverHelper;
 import Helpers.DriverManager;
 import PageObjects.LoginPage;
+import cucumber.api.java.After;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPageStepdef {
+import java.util.Set;
+
+public class LoginPageStepdef extends BaseStepdef{
+   // private WebDriver driver;
     LoginPage loginPage;
     private static final Logger logger = LogManager.getLogger(LoginPageStepdef.class);
 
     public LoginPageStepdef() {
-        loginPage = new LoginPage(DriverManager.getChromeDriver());
+       // driver = DriverManager.getDriver();
+        loginPage = new LoginPage(driver);
     }
 
     @Then("I see login page is opened")
@@ -39,5 +47,10 @@ public class LoginPageStepdef {
         loginPage.clickOnLoginButton();
         logger.info("I сlick on submit button - completed");
     }
+
+
+
+
+
 
 }

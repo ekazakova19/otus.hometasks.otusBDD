@@ -12,4 +12,8 @@ public class DriverHelper {
     public void openUrl(String url){
         driver.get(url);
     }
+
+    public void refreshPage(){
+        driver.navigate().refresh();
+    }
 }

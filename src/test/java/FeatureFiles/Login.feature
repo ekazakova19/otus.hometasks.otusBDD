@@ -1,5 +1,6 @@
 Feature: Login
 
+ @cookies
   Scenario: Login as otus student
     When I open otus main page
     And I сlick on Login button
@@ -10,7 +11,3 @@ Feature: Login
     And I сlick on submit button
 
     Then I see main page opened for logged user
-#
-  Scenario: Login as otus student2
-    When I open otus main page
-    And I сlick on Login button
