@@ -17,4 +17,12 @@ public class PostPageStepdef extends BaseStepdef {
     public void iOpenPostPage(){
         postsPage.driverHelper.openUrl(postsPage.postsPageUrl);
     }
+
+    @When("I search for {string}")
+    public void iSearchForGit(String text) {
+        postsPage.clickOn(postsPage.SEARCHING_BUTTON);
+        postsPage.enterTextField(postsPage.SEARCH_BOX,text);
+        postsPage.clickOn(postsPage.SEARCH_BUTTON);
+
+    }
 }

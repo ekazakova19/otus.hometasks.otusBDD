@@ -30,7 +30,8 @@ public class BasePage {
     }
 
     public void enterTextField(WebElement element, String val){
-        if(!element.getAttribute("value").isEmpty()){
+        wait.until(ExpectedConditions.visibilityOf(element));
+        if(element.getAttribute("value")!=null){
             element.clear();
         }
         element.sendKeys(val);
