@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="otus.hometasks.otusBDD2" />
         <module name="otus.hometasks.otusBDD" />
+        <module name="otus.hometasks.otusBDD2" />
       </profile>
     </annotationProcessing>
   </component>

@@ -16,13 +16,11 @@ import org.openqa.selenium.WebDriver;
 import java.util.Set;
 
 public class MainPageStepdef extends BaseStepdef{
-  //  private WebDriver driver;
     MainPage mainPage;
     private static final Logger logger = LogManager.getLogger(MainPageStepdef.class);
 
 
     public MainPageStepdef() {
-        //driver = DriverManager.getDriver();
         mainPage = new MainPage(driver);
     }
 
@@ -48,6 +46,7 @@ public class MainPageStepdef extends BaseStepdef{
     }
 
     @Given("My user is logged on")
+    @When("I log in")
     public void myUserIsLoggedOn(){
         mainPage.driverHelper.openUrl(mainPage.otusMainPageUrl);
         CookieManager cookieManager = new CookieManager(driver);

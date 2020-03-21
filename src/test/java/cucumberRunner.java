@@ -5,9 +5,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/FeatureFiles/Blog.feature",
+        features = "src/test/java/FeatureFiles/Polls.feature",
         glue = "Steps",
         snippets = SnippetType.CAMELCASE
+     //, tags = {"@debug"}
 )
 public class cucumberRunner {
 

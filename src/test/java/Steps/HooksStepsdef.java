@@ -7,7 +7,7 @@ import cucumber.api.java.Before;
 
 public class HooksStepsdef {
 
-    @After(order = 0)
+  //  @After(order = 0)
     public void closeDriver(){
         DriverManager.closeDriver();
     }

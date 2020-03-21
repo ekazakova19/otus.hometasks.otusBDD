@@ -16,4 +16,5 @@ public class DriverHelper {
     public void refreshPage(){
         driver.navigate().refresh();
     }
+
 }

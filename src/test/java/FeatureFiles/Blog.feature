@@ -1,11 +1,23 @@
 Feature: Blog
 
-Scenario: Find a post in blog
+  Background:
+    Given My user is logged on
+    And I open post page
 
-  Given My user is logged on
-  When I open post page
-  And I search for "git"
+  Scenario: 01_Open and close search
+    When I input "test" in search field
+    And I close search box
+    Then I don't see search box anymore
 
- # Then I see posts found
+  Scenario: 02_Find a post in blog
+    When I input "git" in search field
+    And I click on search button
+    Then I see posts found
 
+  Scenario: 03_Add post to favorite
+    When I click on add to favorite icon for any post
+    Then I see the post in my favorite posts
 
+  Scenario: 04_Read more post
+    When I click on read more for any post
+    Then I see the post page opened
