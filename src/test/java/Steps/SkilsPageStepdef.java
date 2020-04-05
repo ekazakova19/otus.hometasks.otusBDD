@@ -7,15 +7,18 @@ import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
 
-public class SkilsPageStepdef extends BaseStepdef {
+public class SkilsPageStepdef  {
+    WebDriver driver;
     SkillPage skillPage ;
 
     private static final Logger logger = LogManager.getLogger(SkilsPageStepdef.class);
 
     public SkilsPageStepdef() {
+        driver = Hooks.driver;
         skillPage = new SkillPage(driver);
     }
 

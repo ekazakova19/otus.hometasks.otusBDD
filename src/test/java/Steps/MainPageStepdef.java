@@ -2,7 +2,6 @@ package Steps;
 
 
 import Helpers.CookieManager;
-import Helpers.DriverManager;
 import PageObjects.MainPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,12 +14,14 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.Set;
 
-public class MainPageStepdef extends BaseStepdef{
+public class MainPageStepdef {
+    public WebDriver driver;
     MainPage mainPage;
     private static final Logger logger = LogManager.getLogger(MainPageStepdef.class);
 
 
     public MainPageStepdef() {
+        driver = Hooks.driver;
         mainPage = new MainPage(driver);
     }
 
@@ -52,7 +53,7 @@ public class MainPageStepdef extends BaseStepdef{
         CookieManager cookieManager = new CookieManager(driver);
         Set<Cookie> cookies = cookieManager.readCookiesFromFile();
         cookieManager.addCookiesToDriver(cookies);
-        driverHelper.refreshPage();
+        mainPage.driverHelper.refreshPage();
 
     }
 

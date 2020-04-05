@@ -38,6 +38,10 @@ public class BasePage {
         element.sendKeys(val);
     }
 
+    public String getTextOfElement(WebElement element){
+        return  element.getText();
+    }
+
 
 
 }

@@ -14,7 +14,7 @@ Feature: Personal info
       | direction      | Data science      |
       | specialization | Big Data engineer |
 
-
+  @closeDriver
   Scenario: 02_Save when specialization not filled
     When I set the following parameters
       | direction      | Data science      |

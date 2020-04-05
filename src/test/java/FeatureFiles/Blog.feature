@@ -1,3 +1,4 @@
+
 Feature: Blog
 
   Background:
@@ -17,6 +18,7 @@ Feature: Blog
   Scenario: 03_Add post to favorite
     When I click on add to favorite icon for any post
     Then I see the post in my favorite posts
+
 
   Scenario: 04_Read more post
     When I click on read more for any post

@@ -6,12 +6,15 @@ import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
-public class PollsPageStepdef extends BaseStepdef{
+public class PollsPageStepdef {
+    WebDriver driver;
     PollsPage pollsPage;
     private static final Logger logger = LogManager.getLogger(PollsPageStepdef.class);
 
     public PollsPageStepdef() {
+        driver = Hooks.driver;
         pollsPage = new PollsPage(driver);
     }
 

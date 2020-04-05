@@ -8,13 +8,16 @@ import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
-public class PostPageStepdef extends BaseStepdef {
+public class PostPageStepdef {
+    WebDriver driver;
     PostsPage postsPage;
     StandalonePostPage standalonePostPage;
     private static final Logger logger = LogManager.getLogger(PostPageStepdef.class);
 
     public PostPageStepdef() {
+        driver = Hooks.driver;
         postsPage = new PostsPage(driver);
     }
 
@@ -49,6 +52,7 @@ public class PostPageStepdef extends BaseStepdef {
     @Then("I don't see search box anymore")
     public void iDonTSeeSearchBoxAnymore() {
         Assert.assertTrue(postsPage.isSearchBoxClosed());
+        logger.info("Step I don't see search box anymore - completed");
     }
 
     @When("I click on add to favorite icon for any post")
