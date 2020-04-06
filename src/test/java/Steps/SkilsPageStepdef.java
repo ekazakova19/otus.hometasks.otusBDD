@@ -69,9 +69,4 @@ public class SkilsPageStepdef  {
             }
         }
     }
-
-    @Then("I see error notification")
-    public void iSeeErrorNotification() {
-
-    }
 }

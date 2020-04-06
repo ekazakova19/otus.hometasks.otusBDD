@@ -1,3 +1,4 @@
+@debug
 Feature: Login
 
  @cookies
@@ -10,9 +11,5 @@ Feature: Login
     And I сlick on submit button
     Then I see main page opened for logged user
 
-  Scenario: 02_Login as otus student
-    When I open otus main page
-    And I сlick on Login button
-    Then I see login page is opened
 
 

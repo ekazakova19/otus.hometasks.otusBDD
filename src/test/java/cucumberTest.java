@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = "Steps",
         snippets = SnippetType.CAMELCASE,
         plugin = { "pretty", "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"}
-        //, tags = {"@debug"}
+        , tags = {"@debug"}
 )
 public class cucumberTest {
 

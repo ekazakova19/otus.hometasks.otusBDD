@@ -28,22 +28,15 @@ public class MainPageStepdef {
     @When("I open otus main page")
     public void iOpenOtusMainPage() {
         mainPage.driverHelper.openUrl(mainPage.otusMainPageUrl);
-        logger.info("When I open otus main page - completed");
     }
     @When("I сlick on Login button")
     public void iСlickOnLoginButton() {
         mainPage.clickOnLoginButton();
-        logger.info("When I click on Login button - completed");
     }
 
     @Then("I see main page opened for logged user")
     public void iSeeMainPageOpenedForLoggedUser(){
-        try {
             mainPage.checkMainPageOpenInAuthorizedMode();
-        } catch (TimeoutException e) {
-            logger.error("Login is not successful. See error {}", e);
-            throw e;
-        }
     }
 
     @Given("My user is logged on")

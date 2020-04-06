@@ -24,24 +24,20 @@ public class LoginPageStepdef {
     @Then("I see login page is opened")
     public void iSeeLoginPage(){
         loginPage.isLoginPageOpened();
-        logger.info("I see login page is opened - completed");
     }
 
     @When("I fill email field")
     public void iFillEmailField(){
         loginPage.fillEmail(testConfig.user());
-        logger.info("I fill email field - completed");
     }
     @When("I fill password field")
     public void iFillPassField(){
         loginPage.fillPassword(testConfig.password());
-        logger.info("I fill password field - completed");
     }
 
     @When("I сlick on submit button")
     public void iСlickOnLoginButton() {
         loginPage.clickOnLoginButton();
-        logger.info("I сlick on submit button - completed");
     }
 
 

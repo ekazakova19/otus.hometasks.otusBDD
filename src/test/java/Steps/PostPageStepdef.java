@@ -52,7 +52,6 @@ public class PostPageStepdef {
     @Then("I don't see search box anymore")
     public void iDonTSeeSearchBoxAnymore() {
         Assert.assertTrue(postsPage.isSearchBoxClosed());
-        logger.info("Step I don't see search box anymore - completed");
     }
 
     @When("I click on add to favorite icon for any post")
