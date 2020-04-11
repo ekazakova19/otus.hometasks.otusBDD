@@ -1,7 +1,7 @@
-package Steps;
+package steps;
 
-import PageObjects.StandalonePostPage;
-import PageObjects.PostsPage;
+import pageObjects.StandalonePostPage;
+import pageObjects.PostsPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

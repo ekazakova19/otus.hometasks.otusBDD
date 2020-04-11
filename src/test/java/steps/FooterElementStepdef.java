@@ -1,7 +1,6 @@
-package Steps;
+package steps;
 
-import PageObjects.BasePage;
-import PageObjects.MainFooterElement;
+import pageObjects.MainFooterElement;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;

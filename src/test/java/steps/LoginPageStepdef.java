@@ -1,7 +1,7 @@
-package Steps;
+package steps;
 
-import PageObjects.LoginPage;
-import TestProperties.TestConfig;
+import pageObjects.LoginPage;
+import testProperties.TestConfig;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.aeonbits.owner.ConfigFactory;

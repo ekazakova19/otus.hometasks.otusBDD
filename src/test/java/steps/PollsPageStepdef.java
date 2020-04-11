@@ -1,6 +1,6 @@
-package Steps;
+package steps;
 
-import PageObjects.PollsPage;
+import pageObjects.PollsPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;

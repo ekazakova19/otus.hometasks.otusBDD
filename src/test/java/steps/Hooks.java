@@ -1,9 +1,8 @@
-package Steps;
+package steps;
 
-import Helpers.CookieManager;
-import Helpers.DriverHelper;
-import Helpers.DriverManager;
-import TestProperties.TestConfig;
+import helpers.CookieManager;
+import helpers.DriverManager;
+import testProperties.TestConfig;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.aeonbits.owner.ConfigFactory;

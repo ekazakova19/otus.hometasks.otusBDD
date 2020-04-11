@@ -1,15 +1,14 @@
-package Steps;
+package steps;
 
 
-import Helpers.CookieManager;
-import PageObjects.MainPage;
+import helpers.CookieManager;
+import pageObjects.MainPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Cookie;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Set;
