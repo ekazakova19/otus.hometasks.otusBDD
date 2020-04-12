@@ -1,6 +1,6 @@
-package steps;
+package otus.bdd.steps;
 
-import pageObjects.MainFooterElement;
+import otus.bdd.pageObjects.MainFooterElement;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;

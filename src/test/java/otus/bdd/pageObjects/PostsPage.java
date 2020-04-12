@@ -1,4 +1,4 @@
-package pageObjects;
+package otus.bdd.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;

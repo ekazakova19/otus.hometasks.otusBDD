@@ -1,6 +1,6 @@
-package steps;
+package otus.bdd.steps;
 
-import pageObjects.PollsPage;
+import otus.bdd.pageObjects.PollsPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;

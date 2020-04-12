@@ -1,7 +1,7 @@
-package steps;
+package otus.bdd.steps;
 
-import pageObjects.StandalonePostPage;
-import pageObjects.PostsPage;
+import otus.bdd.pageObjects.StandalonePostPage;
+import otus.bdd.pageObjects.PostsPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

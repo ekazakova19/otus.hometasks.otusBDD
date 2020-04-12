@@ -1,4 +1,4 @@
-package testProperties;
+package otus.bdd.testProperties;
 
 import org.aeonbits.owner.Config;
 

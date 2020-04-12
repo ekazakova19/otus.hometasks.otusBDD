@@ -1,4 +1,4 @@
-package helpers;
+package otus.bdd.helpers;
 
 import org.openqa.selenium.WebDriver;
 
