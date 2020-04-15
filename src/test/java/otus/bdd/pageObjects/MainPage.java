@@ -4,15 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import otus.bdd.helpers.CommonActions;
 
 
 @Component
-public class MainPage implements InitializingBean {
+public class MainPage implements InitializingBean  {
     @Autowired
     public WebDriver driver;
+
+    @Autowired
+    public CommonActions commonActions;
 
     public String otusMainPageUrl = "http://otus.ru/";
     @FindBy(css = "button.header2__auth")
@@ -22,13 +27,16 @@ public class MainPage implements InitializingBean {
 
 
     public MainPage() {
-        System.out.println("Main page constructore has been called");
+        System.out.println("Main page constructor has been called");
 
     }
 
+    public void openURL(){
+        commonActions.openUrl(otusMainPageUrl);
+    }
     public void clickOnLoginButton(){
-       // clickOn(RegisterButton);
-        RegisterButton.click();
+       commonActions.clickOn(RegisterButton);
+        //RegisterButton.click();
     }
 
     @Override
@@ -38,9 +46,9 @@ public class MainPage implements InitializingBean {
     }
 
 
-//    public void checkMainPageOpenInAuthorizedMode(){
-//            wait.until(ExpectedConditions.visibilityOf(USER_NAME_MENU));
-//    }
+    public void checkMainPageOpenInAuthorizedMode(){
+        commonActions.wait.until(ExpectedConditions.visibilityOf(USER_NAME_MENU));
+    }
 
   
 

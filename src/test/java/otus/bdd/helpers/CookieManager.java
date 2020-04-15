@@ -5,24 +5,25 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.NoSuchCookieException;
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+@Component
 public class CookieManager {
+    @Autowired
     private WebDriver driver;
+
     private static final Logger logger = LogManager.getLogger(CookieManager.class);
-    private static final String FILE_PATH="Cookies.data";
-
-
-    public CookieManager(WebDriver driver) {
-        this.driver = driver;
-    }
+    private static final String FILE_PATH = "Cookies.data";
 
 
     public void saveCookiesToFile(){
+        System.out.println(driver);
         try {
             File cookieFile = new File(FILE_PATH);
             if(cookieFile.exists()){
@@ -70,6 +71,7 @@ public class CookieManager {
             logger.warn("Not possible to read cookie file due to error {} ", e);
             e.printStackTrace();
         }
+        System.out.println(cookies);
         return cookies;
     }
 

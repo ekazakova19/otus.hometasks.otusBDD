@@ -1,6 +1,7 @@
 package otus.bdd.pageObjects;
 
 
+import cucumber.api.java.bs.A;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import otus.bdd.helpers.CommonActions;
 
 
 @Component
@@ -19,6 +21,9 @@ public class LoginPage implements InitializingBean {
 
     @Autowired
     public WebDriver driver;
+
+    @Autowired
+    public CommonActions commonActions;
 
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
     public static String url = "https://otus.ru/login/";
@@ -43,19 +48,27 @@ public class LoginPage implements InitializingBean {
 //        PageFactory.initElements(driver,this);
 //    }
 
-//    public void fillEmail(String email){
-//        enterTextField(EMAIL,email);
-//    }
-//    public void fillPassword(String pass){
-//        enterTextField(PASSWORD,pass);
-//    }
+    public void fillEmail(String email){
+       commonActions.enterTextField(EMAIL,email);
+       // EMAIL.sendKeys(email);
+
+    }
+    public void fillPassword(String pass){
+       commonActions.enterTextField(PASSWORD,pass);
+        //PASSWORD.sendKeys(pass);
+
+    }
+
+
     public void clickOnLoginButton(){
-        LOGIN_BUTTON.click();
+        //LOGIN_BUTTON.click();
+        commonActions.clickOn(LOGIN_BUTTON);
     }
 
     public void isLoginPageOpened(){
-        WebDriverWait wait =new WebDriverWait(driver,7);
-      wait.until(ExpectedConditions.visibilityOf(LOGIN_FORM));
+//        WebDriverWait wait =new WebDriverWait(driver,7);
+//      wait.until(ExpectedConditions.visibilityOf(LOGIN_FORM));
+      commonActions.wait.until(ExpectedConditions.visibilityOf(LOGIN_FORM));
   }
 
 

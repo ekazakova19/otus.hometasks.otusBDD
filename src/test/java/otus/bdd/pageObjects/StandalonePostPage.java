@@ -10,7 +10,7 @@ public class StandalonePostPage extends BasePage {
     private WebElement POST;
 
     public StandalonePostPage(WebDriver webDriver) {
-        super(webDriver);
+       // super(webDriver);
         PageFactory.initElements(driver,this);
     }
 

@@ -13,7 +13,7 @@ public class PollsPage extends BasePage {
     public WebElement POLL_HEADER;
 
     public PollsPage(WebDriver webDriver) {
-        super(webDriver);
+     //   super(webDriver);
         PageFactory.initElements(driver,this);
     }
 

@@ -1,5 +1,6 @@
 package otus.bdd.steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import otus.bdd.pageObjects.SkillPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,19 +13,22 @@ import org.openqa.selenium.WebDriver;
 import java.util.Map;
 
 public class SkilsPageStepdef  {
-    WebDriver driver;
+
+  //  WebDriver driver;
+
+    @Autowired
     SkillPage skillPage ;
 
     private static final Logger logger = LogManager.getLogger(SkilsPageStepdef.class);
 
-    public SkilsPageStepdef() {
-        driver = Hooks.driver;
-        skillPage = new SkillPage(driver);
-    }
+//    public SkilsPageStepdef() {
+//        driver = Hooks.driver;
+//        skillPage = new SkillPage(driver);
+//    }
 
     @Given( "I open skill page")
     public void iOpenSkillPage(){
-        skillPage.driverHelper.openUrl(skillPage.skillPageUrl);
+        skillPage.commonActions.openUrl(skillPage.skillPageUrl);
     }
 
 
@@ -34,11 +38,11 @@ public class SkilsPageStepdef  {
             System.out.println("params =  " + entry.getKey() + " value = " + entry.getValue());
                 switch (entry.getKey()) {
                     case "direction":
-                        skillPage.clickOn(skillPage.DIRECTION_FIELD);
+                        skillPage.commonActions.clickOn(skillPage.DIRECTION_FIELD);
                         skillPage.selectValueFromDropdownList(entry.getValue());
                         break;
                     case "specialization" :
-                        skillPage.clickOn(skillPage.SPECIALIZATION_FIELD);
+                        skillPage.commonActions.clickOn(skillPage.SPECIALIZATION_FIELD);
                         skillPage.selectValueFromDropdownList(entry.getValue());
                         break;
                      default:
@@ -49,7 +53,7 @@ public class SkilsPageStepdef  {
 
     @When("I click on Save and Fill Later")
     public void iClickOnSaveAndFillLater() {
-        skillPage.clickOn(skillPage.SAVE_AND_FILL_LATER_BTN);
+        skillPage.commonActions.clickOn(skillPage.SAVE_AND_FILL_LATER_BTN);
     }
 
     @Then("I see the following parameters")
@@ -69,4 +73,10 @@ public class SkilsPageStepdef  {
             }
         }
     }
+
+    @Then("I see error notification")
+    public void iSeeErrorNotification() {
+        skillPage.checkErrorMessageAppears();
+    }
+
 }

@@ -36,7 +36,7 @@ public class PostsPage extends BasePage{
 
 
     public PostsPage(WebDriver webDriver) {
-        super(webDriver);
+       // super(webDriver);
         PageFactory.initElements(driver,this);
     }
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MainFooterElement  extends BasePage{
 
     public MainFooterElement(WebDriver driver) {
-        super(driver);
+       // super(driver);
         PageFactory.initElements(driver,this);
     }
 

@@ -12,8 +12,8 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPageStepdef {
 
-    @Autowired
-    public WebDriver driver;
+//    @Autowired
+//    public WebDriver driver2;
     @Autowired
     LoginPage loginPage;
 
@@ -30,14 +30,19 @@ public class LoginPageStepdef {
         loginPage.isLoginPageOpened();
     }
 
-//    @When("I fill email field")
-//    public void iFillEmailField(){
-//        loginPage.fillEmail(testConfig.user());
-//    }
-//    @When("I fill password field")
-//    public void iFillPassField(){
-//        loginPage.fillPassword(testConfig.password());
-//    }
+    @When("I open login page")
+    public void iOpenLoginPage(){
+        loginPage.commonActions.openUrl(loginPage.url);
+    }
+
+    @When("I fill email field")
+    public void iFillEmailField(){
+        loginPage.fillEmail(testConfig.user());
+    }
+    @When("I fill password field")
+    public void iFillPassField(){
+        loginPage.fillPassword(testConfig.password());
+    }
 
     @When("I сlick on submit button")
     public void iСlickOnLoginButton() {

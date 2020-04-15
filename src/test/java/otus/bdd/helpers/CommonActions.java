@@ -1,38 +1,31 @@
-package otus.bdd.pageObjects;
+package otus.bdd.helpers;
 
-import org.junit.After;
-import org.openqa.selenium.support.PageFactory;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import otus.bdd.helpers.DriverHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import otus.bdd.helpers.DriverHelper;
 
-
-public class BasePage implements InitializingBean {
+@Component
+public class CommonActions implements InitializingBean {
 
     @Autowired
-    public WebDriver driver;
+    WebDriver driver;
 
-    WebDriverWait wait;
+    public WebDriverWait wait;
 
-
-   public DriverHelper driverHelper;
-
-    public BasePage() {
-        System.out.println(" Base page constructor has been called");
+    public CommonActions() {
+        System.out.println(" Common Actions constructor has been called");
     }
 
 
     @Override
     public void afterPropertiesSet() throws Exception {
         wait = new WebDriverWait(driver,7);
-        driverHelper = new DriverHelper(driver);
-        System.out.println("Base page - Bean init method executed");
-        System.out.println(driverHelper);
+        System.out.println("Common Actions - Bean init method executed");
     }
 
     public void clickOn(WebElement element){
@@ -53,6 +46,13 @@ public class BasePage implements InitializingBean {
         return  element.getText();
     }
 
+    public void openUrl(String url){
+        driver.get(url);
+    }
+
+    public void refreshPage(){
+        driver.navigate().refresh();
+    }
 
 
 }

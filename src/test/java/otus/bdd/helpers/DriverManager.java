@@ -3,18 +3,20 @@ package otus.bdd.helpers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
 @Service
 public class DriverManager {
+
     private static WebDriver driver;
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
 
     public static WebDriver getDriver(String browser) {
 
-        if (driver==null) {
+       // if (driver==null) {
             switch (browser.toLowerCase()) {
                 case "chrome":
                     driver = Drivers.CHROME.createDriver();
@@ -30,7 +32,7 @@ public class DriverManager {
                     logger.info("Chrome browser set up successfully");
             }
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        }
+       // }
             return driver;
 
     }

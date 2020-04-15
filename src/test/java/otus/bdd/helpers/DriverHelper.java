@@ -9,6 +9,7 @@ public class DriverHelper {
         this.driver = driver;
     }
 
+    //to remove
     public void openUrl(String url){
         driver.get(url);
     }
