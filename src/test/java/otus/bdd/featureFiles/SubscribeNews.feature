@@ -1,3 +1,4 @@
+
 Feature: Otus news subscription
   Background:
     Given  I open otus main page
@@ -9,7 +10,7 @@ Feature: Otus news subscription
     When I input 'correctmail@mail.ru' in subscribe email field
     Then I see subscribe button becomes available
 
-  @closeDriver
+
   Scenario: 02_Subscribe test
     When I input 'correct@mail.ru' in subscribe email field
     When I click on subscribe button

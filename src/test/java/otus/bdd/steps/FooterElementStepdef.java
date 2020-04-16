@@ -1,23 +1,20 @@
 package otus.bdd.steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import otus.bdd.pageObjects.MainFooterElement;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 
 public class FooterElementStepdef   {
-    public WebDriver driver;
+
+    @Autowired
     MainFooterElement mainFooterElement;
 
-    public FooterElementStepdef() {
-        driver = Hooks.driver;
-        mainFooterElement = new MainFooterElement(driver);
-    }
 
     @When("I input {string} in subscribe email field")
     public void iInputSubscribeField(String value){
-        mainFooterElement.enterTextField(mainFooterElement.SUBSCRIBE_FIELD,value);
+        mainFooterElement.commonActions.enterTextField(mainFooterElement.SUBSCRIBE_FIELD,value);
     }
 
     @Then("I see subscribe button becomes unavailable")
@@ -31,11 +28,11 @@ public class FooterElementStepdef   {
 
     @When("I click on subscribe button")
     public void iClickOnSubscribeButton() {
-        mainFooterElement.clickOn(mainFooterElement.SUBSCRIBE_BUTTON);
+        mainFooterElement.commonActions.clickOn(mainFooterElement.SUBSCRIBE_BUTTON);
     }
 
     @Then("I see {string}")
     public void iSeeTextAppears(String value) {
-      Assert.assertEquals(value,mainFooterElement.getTextOfElement(mainFooterElement.SUBSCRIBE_CONFIRM_TEXT));
+      Assert.assertEquals(value,mainFooterElement.commonActions.getTextOfElement(mainFooterElement.SUBSCRIBE_CONFIRM_TEXT));
     }
 }
