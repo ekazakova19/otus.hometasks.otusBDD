@@ -1,5 +1,6 @@
 package otus.bdd.steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import otus.bdd.pageObjects.StandalonePostPage;
 import otus.bdd.pageObjects.PostsPage;
 import cucumber.api.java.en.Given;
@@ -11,30 +12,27 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class PostPageStepdef {
-    WebDriver driver;
+
+    @Autowired
     PostsPage postsPage;
+    @Autowired
     StandalonePostPage standalonePostPage;
     private static final Logger logger = LogManager.getLogger(PostPageStepdef.class);
 
-    public PostPageStepdef() {
-        driver = Hooks.driver;
-        postsPage = new PostsPage(driver);
-    }
-
     @Given("I open post page")
     public void iOpenPostPage(){
-        postsPage.driverHelper.openUrl(postsPage.postsPageUrl);
+        postsPage.commonActions.openUrl(postsPage.postsPageUrl);
     }
 
     @When("I input {string} in search field")
     public void iSearchForGit(String text) {
-        postsPage.clickOn(postsPage.SEARCHING_BUTTON);
-        postsPage.enterTextField(postsPage.SEARCH_BOX,text);
+        postsPage.commonActions.clickOn(postsPage.SEARCHING_BUTTON);
+        postsPage.commonActions.enterTextField(postsPage.SEARCH_BOX,text);
     }
 
     @When("I click on search button")
     public void iClickOnSearchButton() {
-        postsPage.clickOn(postsPage.SEARCH_BUTTON);
+        postsPage.commonActions.clickOn(postsPage.SEARCH_BUTTON);
     }
 
 
@@ -46,7 +44,7 @@ public class PostPageStepdef {
 
     @When("I close search box")
     public void iCloseSearchBox() {
-        postsPage.clickOn(postsPage.CLOSE_SEARCHBOX_BTN);
+        postsPage.commonActions.clickOn(postsPage.CLOSE_SEARCHBOX_BTN);
     }
 
     @Then("I don't see search box anymore")
@@ -61,14 +59,13 @@ public class PostPageStepdef {
 
     @Then("I see the post in my favorite posts")
     public void iSeeThePostInMyFavoritePosts() {
-        postsPage.driverHelper.openUrl(postsPage.favoritePageUrl);
+        postsPage.commonActions.openUrl(postsPage.favoritePageUrl);
         Assert.assertTrue(postsPage.getPostsCount()>0);
     }
 
     @When("I click on read more for any post")
     public void iClickOnReadMoreForAnyPost() {
         postsPage.readMoreAnyPost();
-        standalonePostPage = new StandalonePostPage(driver);
     }
 
     @Then("I see the post page opened")

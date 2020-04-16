@@ -7,10 +7,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import otus.bdd.helpers.CommonActions;
 
 import java.util.List;
+@Component
+public class PostsPage implements InitializingBean {
+    @Autowired
+    public WebDriver driver;
+    @Autowired
+    public CommonActions commonActions;
 
-public class PostsPage extends BasePage{
     public String postsPageUrl = "https://otus.ru/nest/posts/";
     public String favoritePageUrl = "https://otus.ru/nest/marked/";
 
@@ -26,8 +35,6 @@ public class PostsPage extends BasePage{
     private List<WebElement> SEARCH_LIST;
     @FindBy(css="div[class=\"search__box js-search-box\"] i.ic-close")
     public WebElement CLOSE_SEARCHBOX_BTN;
-
-
     @FindBy(css="div.blog-post")
     private List<WebElement> POST_LIST;
 
@@ -35,10 +42,9 @@ public class PostsPage extends BasePage{
     private By READ_MORE = By.cssSelector("div.text.text_p>a");
 
 
-    public PostsPage(WebDriver webDriver) {
-       // super(webDriver);
-        PageFactory.initElements(driver,this);
-    }
+//    public PostsPage(WebDriver webDriver) {
+//       // super(webDriver);
+//    }
 
     public int getFoundPostsCount(){
         return SEARCH_LIST.size();
@@ -49,7 +55,7 @@ public class PostsPage extends BasePage{
 
     public boolean isSearchBoxClosed(){
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated
+            commonActions.wait.until(ExpectedConditions.presenceOfElementLocated
                     (By.cssSelector("div.nav__item.vertical-middle div.search__box.js-search-box>button")));
         } catch (TimeoutException e) {
             return false;
@@ -62,16 +68,16 @@ public class PostsPage extends BasePage{
     }
 
     public void addAnyPostToFavorite(){
-        clickOn(getAnyPost().findElement(ADD_TO_FAVORITE_BTN));
+        commonActions.clickOn(getAnyPost().findElement(ADD_TO_FAVORITE_BTN));
     }
 
     public void readMoreAnyPost(){
-        clickOn(getAnyPost().findElement(READ_MORE));
+        commonActions.clickOn(getAnyPost().findElement(READ_MORE));
     }
 
 
-
-
-
-
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        PageFactory.initElements(driver,this);
+    }
 }

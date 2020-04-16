@@ -1,4 +1,4 @@
-@debug
+
 Feature: Personal info
 
   Background:
