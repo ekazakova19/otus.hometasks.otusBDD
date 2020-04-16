@@ -1,5 +1,6 @@
 package otus.bdd.steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import otus.bdd.pageObjects.PollsPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,18 +10,14 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class PollsPageStepdef {
-    WebDriver driver;
+
+    @Autowired
     PollsPage pollsPage;
     private static final Logger logger = LogManager.getLogger(PollsPageStepdef.class);
 
-    public PollsPageStepdef() {
-        driver = Hooks.driver;
-        pollsPage = new PollsPage(driver);
-    }
-
     @When("I open the poll link {string}")
     public void iOpenPollLink(String link){
-        pollsPage.driverHelper.openUrl(link);
+        pollsPage.commonActions.openUrl(link);
     }
 
     @Then("I see {string} text")
