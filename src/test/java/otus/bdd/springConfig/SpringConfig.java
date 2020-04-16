@@ -1,17 +1,11 @@
 package otus.bdd.springConfig;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.config.CustomScopeConfigurer;
-import org.springframework.context.annotation.Scope;
 import otus.bdd.helpers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.test.annotation.DirtiesContext;
-import otus.bdd.pageObjects.BasePage;
 import otus.bdd.testProperties.TestConfig;
 
 @Configuration

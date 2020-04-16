@@ -7,10 +7,8 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 
 public class FooterElementStepdef   {
-
     @Autowired
     MainFooterElement mainFooterElement;
-
 
     @When("I input {string} in subscribe email field")
     public void iInputSubscribeField(String value){

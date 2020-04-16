@@ -7,7 +7,6 @@ import cucumber.api.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 
 public class PollsPageStepdef {
 
@@ -16,7 +15,7 @@ public class PollsPageStepdef {
     private static final Logger logger = LogManager.getLogger(PollsPageStepdef.class);
 
     @When("I open the poll link {string}")
-    public void iOpenPollLink(String link){
+    public void iOpenPollLink(String link) {
         pollsPage.commonActions.openUrl(link);
     }
 
@@ -24,7 +23,6 @@ public class PollsPageStepdef {
     public void iSeeText(String text) {
         Assert.assertTrue(pollsPage.getErrorText().equalsIgnoreCase(text));
     }
-
 
     @Then("I see poll page")
     public void iSeePollPage() {

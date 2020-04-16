@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import otus.bdd.helpers.CommonActions;
 
 import java.util.List;
+
 @Component
 public class PostsPage implements InitializingBean {
     @Autowired
@@ -23,37 +24,34 @@ public class PostsPage implements InitializingBean {
     public String postsPageUrl = "https://otus.ru/nest/posts/";
     public String favoritePageUrl = "https://otus.ru/nest/marked/";
 
-    @FindBy(css="div.nav__item.vertical-middle div.search__button")
+    @FindBy(css = "div.nav__item.vertical-middle div.search__button")
     public WebElement SEARCHING_BUTTON;
-    @FindBy(css="div.nav__item.vertical-middle div[class=\"search__box js-search-box\"]>input")
+    @FindBy(css = "div.nav__item.vertical-middle div[class=\"search__box js-search-box\"]>input")
     public WebElement SEARCH_BOX;
-    @FindBy(css="div[class=\"search__box js-search-box search__box_close\"]")
+    @FindBy(css = "div[class=\"search__box js-search-box search__box_close\"]")
     public WebElement SEARCH_BOX_CLOSED;
-    @FindBy(css="div.nav__item.vertical-middle div.search__box.js-search-box>button")
+    @FindBy(css = "div.nav__item.vertical-middle div.search__box.js-search-box>button")
     public WebElement SEARCH_BUTTON;
-    @FindBy(css="div.container__col>a")
+    @FindBy(css = "div.container__col>a")
     private List<WebElement> SEARCH_LIST;
-    @FindBy(css="div[class=\"search__box js-search-box\"] i.ic-close")
+    @FindBy(css = "div[class=\"search__box js-search-box\"] i.ic-close")
     public WebElement CLOSE_SEARCHBOX_BTN;
-    @FindBy(css="div.blog-post")
+    @FindBy(css = "div.blog-post")
     private List<WebElement> POST_LIST;
 
     private By ADD_TO_FAVORITE_BTN = By.cssSelector("div.blog__counters-item>a");
     private By READ_MORE = By.cssSelector("div.text.text_p>a");
 
 
-//    public PostsPage(WebDriver webDriver) {
-//       // super(webDriver);
-//    }
-
-    public int getFoundPostsCount(){
+    public int getFoundPostsCount() {
         return SEARCH_LIST.size();
     }
-    public int getPostsCount(){
+
+    public int getPostsCount() {
         return POST_LIST.size();
     }
 
-    public boolean isSearchBoxClosed(){
+    public boolean isSearchBoxClosed() {
         try {
             commonActions.wait.until(ExpectedConditions.presenceOfElementLocated
                     (By.cssSelector("div.nav__item.vertical-middle div.search__box.js-search-box>button")));
@@ -63,21 +61,21 @@ public class PostsPage implements InitializingBean {
         return true;
     }
 
-    public WebElement getAnyPost(){
+    public WebElement getAnyPost() {
         return POST_LIST.get(0);
     }
 
-    public void addAnyPostToFavorite(){
+    public void addAnyPostToFavorite() {
         commonActions.clickOn(getAnyPost().findElement(ADD_TO_FAVORITE_BTN));
     }
 
-    public void readMoreAnyPost(){
+    public void readMoreAnyPost() {
         commonActions.clickOn(getAnyPost().findElement(READ_MORE));
     }
 
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        PageFactory.initElements(driver,this);
+    public void afterPropertiesSet() {
+        PageFactory.initElements(driver, this);
     }
 }

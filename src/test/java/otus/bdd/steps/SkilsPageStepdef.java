@@ -12,42 +12,33 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
 
-public class SkilsPageStepdef  {
-
-  //  WebDriver driver;
-
+public class SkilsPageStepdef {
     @Autowired
-    SkillPage skillPage ;
+    SkillPage skillPage;
 
     private static final Logger logger = LogManager.getLogger(SkilsPageStepdef.class);
 
-//    public SkilsPageStepdef() {
-//        driver = Hooks.driver;
-//        skillPage = new SkillPage(driver);
-//    }
-
-    @Given( "I open skill page")
-    public void iOpenSkillPage(){
+    @Given("I open skill page")
+    public void iOpenSkillPage() {
         skillPage.commonActions.openUrl(skillPage.skillPageUrl);
     }
 
-
     @When("I set the following parameters")
-    public void iSetTheFollowingParameters(Map<String,String> params) {
+    public void iSetTheFollowingParameters(Map<String, String> params) {
         for (Map.Entry<String, String> entry : params.entrySet()) {
             System.out.println("params =  " + entry.getKey() + " value = " + entry.getValue());
-                switch (entry.getKey()) {
-                    case "direction":
-                        skillPage.commonActions.clickOn(skillPage.DIRECTION_FIELD);
-                        skillPage.selectValueFromDropdownList(entry.getValue());
-                        break;
-                    case "specialization" :
-                        skillPage.commonActions.clickOn(skillPage.SPECIALIZATION_FIELD);
-                        skillPage.selectValueFromDropdownList(entry.getValue());
-                        break;
-                     default:
-                         throw new IllegalArgumentException("Parameter not supported");
-                }
+            switch (entry.getKey()) {
+                case "direction":
+                    skillPage.commonActions.clickOn(skillPage.DIRECTION_FIELD);
+                    skillPage.selectValueFromDropdownList(entry.getValue());
+                    break;
+                case "specialization":
+                    skillPage.commonActions.clickOn(skillPage.SPECIALIZATION_FIELD);
+                    skillPage.selectValueFromDropdownList(entry.getValue());
+                    break;
+                default:
+                    throw new IllegalArgumentException("Parameter not supported");
+            }
         }
     }
 
@@ -57,14 +48,14 @@ public class SkilsPageStepdef  {
     }
 
     @Then("I see the following parameters")
-    public void iSeeTheFollowingParameters(Map<String,String> params) {
+    public void iSeeTheFollowingParameters(Map<String, String> params) {
         for (Map.Entry<String, String> entry : params.entrySet()) {
             switch (entry.getKey()) {
                 case "direction":
                     System.out.println(skillPage.getDirectionValue(skillPage.DIRECTION_FIELD));
                     Assert.assertTrue(skillPage.getDirectionValue(skillPage.DIRECTION_FIELD).equalsIgnoreCase(entry.getValue()));
                     break;
-                case "specialization" :
+                case "specialization":
                     System.out.println(skillPage.getDirectionValue(skillPage.SPECIALIZATION_FIELD));
                     Assert.assertTrue(skillPage.getDirectionValue(skillPage.SPECIALIZATION_FIELD).equalsIgnoreCase(entry.getValue()));
                     break;

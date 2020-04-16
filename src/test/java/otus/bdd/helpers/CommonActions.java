@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import otus.bdd.helpers.DriverHelper;
+
 
 @Component
 public class CommonActions implements InitializingBean {
@@ -17,15 +17,9 @@ public class CommonActions implements InitializingBean {
 
     public WebDriverWait wait;
 
-    public CommonActions() {
-        System.out.println(" Common Actions constructor has been called");
-    }
-
-
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         wait = new WebDriverWait(driver,7);
-        System.out.println("Common Actions - Bean init method executed");
     }
 
     public void clickOn(WebElement element){

@@ -17,16 +17,16 @@ public class MainFooterElement implements InitializingBean {
     @Autowired
     public CommonActions commonActions;
 
-    @FindBy(css="form.footer2__subscribe>input[type=email]")
+    @FindBy(css = "form.footer2__subscribe>input[type=email]")
     public WebElement SUBSCRIBE_FIELD;
     @FindBy(css = "form.footer2__subscribe>button")
     public WebElement SUBSCRIBE_BUTTON;
-    @FindBy(css="p.subscribe-modal__success")
+    @FindBy(css = "p.subscribe-modal__success")
     public WebElement SUBSCRIBE_CONFIRM_TEXT;
 
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        PageFactory.initElements(driver,this);
+    public void afterPropertiesSet() {
+        PageFactory.initElements(driver, this);
     }
 }

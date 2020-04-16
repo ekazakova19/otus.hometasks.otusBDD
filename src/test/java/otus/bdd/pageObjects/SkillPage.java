@@ -15,7 +15,6 @@ import otus.bdd.helpers.CommonActions;
 public class SkillPage implements InitializingBean {
     @Autowired
     WebDriver driver;
-
     @Autowired
     public CommonActions commonActions;
 
@@ -23,38 +22,28 @@ public class SkillPage implements InitializingBean {
 
     @FindBy(xpath = ".//label[.//input[@data-title='Направление специализации']]/div")
     public WebElement DIRECTION_FIELD;
-
     @FindBy(xpath = ".//label[.//input[@data-title='Название специализации']]/div")
     public WebElement SPECIALIZATION_FIELD;
-
-    @FindBy(css="div.lk-cv-action-buttons > button[title=\"Сохранить и заполнить позже\"]")
+    @FindBy(css = "div.lk-cv-action-buttons > button[title=\"Сохранить и заполнить позже\"]")
     public WebElement SAVE_AND_FILL_LATER_BTN;
-
-    @FindBy(css="div.notification-lib")
+    @FindBy(css = "div.notification-lib")
     public WebElement ERROR_NOTIFICATION;
 
 
-
-//    public SkillPage(WebDriver webDriver) {
-//       // super(webDriver);
-//        //PageFactory.initElements(driver,this);
-//    }
-
-    public void selectValueFromDropdownList(String value){
+    public void selectValueFromDropdownList(String value) {
         commonActions.clickOn(driver.findElement(By.xpath(String.format(".//button[@title=\"%s\"]", value))));
     }
 
-    public String getDirectionValue(WebElement element){
+    public String getDirectionValue(WebElement element) {
         return element.getText();
     }
 
-    public void checkErrorMessageAppears(){
+    public void checkErrorMessageAppears() {
         commonActions.wait.until(ExpectedConditions.visibilityOf(ERROR_NOTIFICATION));
     }
 
-
     @Override
-    public void afterPropertiesSet() throws Exception {
-        PageFactory.initElements(driver,this);
+    public void afterPropertiesSet() {
+        PageFactory.initElements(driver, this);
     }
 }

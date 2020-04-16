@@ -16,7 +16,6 @@ public class DriverManager {
 
     public static WebDriver getDriver(String browser) {
 
-       // if (driver==null) {
             switch (browser.toLowerCase()) {
                 case "chrome":
                     driver = Drivers.CHROME.createDriver();
@@ -32,7 +31,6 @@ public class DriverManager {
                     logger.info("Chrome browser set up successfully");
             }
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-       // }
             return driver;
 
     }
