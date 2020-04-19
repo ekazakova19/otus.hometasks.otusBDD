@@ -1,6 +1,7 @@
 package otus.bdd.steps;
 
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,11 @@ import org.openqa.selenium.WebDriver;
 
 public class Hooks {
     private static final Logger logger = LogManager.getLogger(Hooks.class);
-
     @Autowired
     CookieManager cookieManager;
     public static WebDriver driver;
+
+
 
     @After(value = "@cookies")
     public void saveAuthorizationCookies(){

@@ -57,4 +57,5 @@ public class LoginPage implements InitializingBean {
     public void afterPropertiesSet() {
         PageFactory.initElements(driver, this);
     }
+
 }

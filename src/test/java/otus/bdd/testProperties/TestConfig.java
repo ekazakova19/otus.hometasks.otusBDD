@@ -7,6 +7,6 @@ public interface TestConfig extends Config{
     String browser();
     @DefaultValue("testuser@mail.ru")
     String user();
-    @DefaultValue("123445")
+    @DefaultValue("12345")
     String password();
 }
