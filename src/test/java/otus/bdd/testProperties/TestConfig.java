@@ -5,8 +5,8 @@ import org.aeonbits.owner.Config;
 public interface TestConfig extends Config{
     @DefaultValue("chrome")
     String browser();
-    @DefaultValue("testuser@mail.ru")
+    @DefaultValue("al.kz93@mail.ru")
     String user();
-    @DefaultValue("12345")
+    @DefaultValue("090393elka!")
     String password();
 }

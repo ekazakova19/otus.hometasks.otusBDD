@@ -1,8 +1,11 @@
 
 Feature: Login
+  This feature covers main login functionality.
 
-  @cookies
+  @severity=blocker
   Scenario: 01_Login as otus student
+  This scenario covers positive login case.
+
     When I open otus main page
     And I сlick on Login button
     Then I see login page is opened
