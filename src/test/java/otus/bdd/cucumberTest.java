@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
         glue = "otus.bdd.steps",
         snippets = SnippetType.CAMELCASE,
         plugin = { "pretty", "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"}
-        //, tags = {"@debug"}
+       // , tags = {"@debug"}
 )
 public class cucumberTest {
 
