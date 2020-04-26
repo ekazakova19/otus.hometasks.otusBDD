@@ -1,4 +1,4 @@
-
+@debug
 Feature: Login
   This feature covers main login functionality.
 
